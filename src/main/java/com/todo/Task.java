@@ -2,37 +2,39 @@ package com.todo;
 
 public class Task {
     private String description;
-    private boolean completed;
-    private Task next;
+    private boolean isCompleted;
 
+    // Constructor
     public Task(String description) {
         this.description = description;
-        this.completed = false;
-        this.next = null;
+        this.isCompleted = false;
     }
 
+    // Getters/Setters
     public String getDescription() {
         return description;
     }
 
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public boolean isCompleted() {
-        return completed;
+        return isCompleted;
     }
 
+    public void setCompleted(boolean completed) {
+        isCompleted = completed;
+    }
+
+    // Mark task as completed
     public void markAsCompleted() {
-        this.completed = true;
+        this.isCompleted = true;
     }
 
-    public Task getNext() {
-        return next;
-    }
-
-    public void setNext(Task next) {
-        this.next = next;
-    }
-
+    // Display task details
     @Override
     public String toString() {
-        return description + " - " + (completed ? "Completed" : "Pending");
+        return description + "Status: " + (isCompleted ? "Completed" : "Pending");
     }
 }
