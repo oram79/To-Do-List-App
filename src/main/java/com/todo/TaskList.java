@@ -1,7 +1,6 @@
 package com.todo;
 
 public class TaskList {
-}
     private class Node {
         Task task;
         Node next;
@@ -30,3 +29,32 @@ public class TaskList {
             current.next = newNode;
         }
     }
+
+    // Mark task as completed
+    public boolean markTaskCompleted(String description) {
+        Node current = head;
+
+        while (current != null) {
+            if (current.task.getDescription().equals(description)) {
+                current.task.markAsCompleted();
+                return true;
+            }
+            current = current.next;
+        }
+        return false; // if no task with description is found
+    }
+
+    // Print all tasks
+    public void printTasks() {
+        Node current = head;
+
+        if (current == null) {
+            System.out.println("There are no tasks in the list");
+        } else {
+            while (current != null) {
+                System.out.println(current.task);
+                current = current.next;
+            }
+        }
+    }
+}
