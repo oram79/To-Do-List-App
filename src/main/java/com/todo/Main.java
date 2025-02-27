@@ -35,10 +35,10 @@ public class Main {
                     viewTasks(scanner);
                     break;
                 case 5:
-                    System.out.println("Exiting...");
+                    System.out.println("Thank You");
                     break;
                 default:
-                    System.out.println("Invalid choice. Please try again.");
+                    System.out.println("Invalid Choice. Please Try Again.");
             }
         } while (choice != 5);
 
@@ -48,16 +48,16 @@ public class Main {
     // Method to create a new user
     private static void createUser(Scanner scanner) {
         if (userCount >= users.length) {
-            System.out.println("Cannot add more users. Limit reached.");
+            System.out.println("Cannot Add  An User, Please Try Again Later");
             return;
         }
 
-        System.out.print("Enter user's first name: ");
+        System.out.print("Enter User's First Name: ");
         String fName = scanner.nextLine();
-        System.out.print("Enter user's last name: ");
+        System.out.print("Enter User's Last Name: ");
         String lName = scanner.nextLine();
         users[userCount++] = new User(fName, lName);
-        System.out.println("User created successfully as " + fName + " " + lName);
+        System.out.println("User Created As: " + fName + " " + lName);
     }
 
     // Method to add a task to a user's to-do list
@@ -65,10 +65,10 @@ public class Main {
         User user = findUser(scanner);
 
         if (user != null) {
-            System.out.print("Enter task description: ");
+            System.out.print("Enter Task Description ");
             String description = scanner.nextLine();
             user.addTask(description);
-            System.out.println("Task added successfully.");
+            System.out.println("Task Added Successfully.");
         }
     }
 
@@ -77,7 +77,7 @@ public class Main {
         User user = findUser(scanner);
 
         if (user != null) {
-            System.out.print("Enter task description to mark as completed: ");
+            System.out.print("Enter Task Description To Mark As Completed: ");
             String description = scanner.nextLine();
             user.markTaskCompleted(description);
         }
@@ -94,9 +94,9 @@ public class Main {
 
     // Helper method to find a user by their name
     private static User findUser(Scanner scanner) {
-        System.out.print("Enter user's first name: ");
+        System.out.print("Enter User's First Name: ");
         String fName = scanner.nextLine();
-        System.out.println("Enter user's last name: ");
+        System.out.println("Enter User's Last Name: ");
         String lName = scanner.nextLine();
 
         for (int i = 0; i < userCount; i++) {
@@ -105,7 +105,7 @@ public class Main {
             }
         }
 
-        System.out.println("User not found.");
+        System.out.println("User Not Found.");
         return null;
     }
 }
